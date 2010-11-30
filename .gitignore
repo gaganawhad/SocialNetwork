@@ -5,3 +5,4 @@ log/*.log
 log/*.pid
 db
 .bundle
+public/system
