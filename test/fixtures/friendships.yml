@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  initiator_id: 1
+  acceptor_id: 1
+  state: MyString
+
+two:
+  initiator_id: 1
+  acceptor_id: 1
+  state: MyString

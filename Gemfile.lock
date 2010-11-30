@@ -1,0 +1,67 @@
+GIT
+  remote: http://github.com/ernie/paperclip.git
+  revision: 0ab7413d260efab88a603e2b1ef9c9cb1070a053
+  ref: 0ab7413d260efa
+  specs:
+    paperclip (2.3.3)
+      activerecord
+      activesupport
+
+GEM
+  remote: http://rubygems.org/
+  remote: http://gems.github.com/
+  specs:
+    actionmailer (2.3.10)
+      actionpack (= 2.3.10)
+    actionpack (2.3.10)
+      activesupport (= 2.3.10)
+      rack (~> 1.1.0)
+    activerecord (2.3.10)
+      activesupport (= 2.3.10)
+    activeresource (2.3.10)
+      activesupport (= 2.3.10)
+    activesupport (2.3.10)
+    archive-tar-minitar (0.5.2)
+    columnize (0.3.1)
+    formtastic (1.2.1)
+      actionpack (>= 2.3.7)
+      activesupport (>= 2.3.7)
+      i18n (>= 0.4.0)
+    i18n (0.4.2)
+    linecache19 (0.5.11)
+      ruby_core_source (>= 0.1.4)
+    rack (1.1.0)
+    rails (2.3.10)
+      actionmailer (= 2.3.10)
+      actionpack (= 2.3.10)
+      activerecord (= 2.3.10)
+      activeresource (= 2.3.10)
+      activesupport (= 2.3.10)
+      rake (>= 0.8.3)
+    rake (0.8.7)
+    rmagick (2.13.1)
+    ruby-debug-base19 (0.11.23)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby_core_source (>= 0.1.4)
+    ruby-debug19 (0.11.6)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby-debug-base19 (>= 0.11.19)
+    ruby_core_source (0.1.4)
+      archive-tar-minitar (>= 0.5.2)
+    sam-mysql-ruby (2.8.1)
+    will_paginate (2.3.15)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  formtastic
+  paperclip!
+  rails (= 2.3.10)
+  rmagick
+  ruby-debug-base19 (= 0.11.23)
+  ruby-debug19 (= 0.11.6)
+  sam-mysql-ruby
+  will_paginate

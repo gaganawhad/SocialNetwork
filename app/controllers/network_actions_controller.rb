@@ -1,0 +1,2 @@
+class NetworkActionsController < ApplicationController
+end

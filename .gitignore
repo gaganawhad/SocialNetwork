@@ -1,0 +1,7 @@
+*.swp
+*.swp
+*.swn
+log/*.log
+log/*.pid
+db
+.bundle
