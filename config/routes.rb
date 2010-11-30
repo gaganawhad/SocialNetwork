@@ -3,7 +3,12 @@ ActionController::Routing::Routes.draw do |map|
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
-  map.resources :users
+  map.resources :users do |user|
+    user.resources :albums do |album|
+      album.resources :photos
+    end
+  end
+
 
   map.resource :session
   map.root :controller => "home"
