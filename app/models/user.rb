@@ -31,6 +31,9 @@ class User < ActiveRecord::Base
 
   belongs_to :address
   has_many :albums 
+  has_many :memberships
+  has_many :groups, :through => :memberships
+  has_many :owned_groups, :class => "Group" 
   accepts_nested_attributes_for :address
 
 
