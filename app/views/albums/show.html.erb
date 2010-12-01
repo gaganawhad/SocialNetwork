@@ -1,3 +1,3 @@
-<% @album.photos.each do |photo| %>
-  <%= image_tag photo.photo.url(:thumbails) %>
+<% @album.images.each do |photo| %>
+  <%= image_tag photo.image.url(:thumbails) %>
 <% end %>

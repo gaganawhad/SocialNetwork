@@ -1,5 +1,5 @@
 <%= form.error_messages %>
 <%= form.input :title %>
 <%= form.input :album_id, :as => :select, :collection => Album.find_all_by_user_id(params[:user_id]).collect {|a| [a.name, a.id]} %>
-<%= form.input :photo %>
+<%= form.input :image %>
 <%= form.buttons %>
