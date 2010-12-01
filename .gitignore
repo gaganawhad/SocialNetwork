@@ -3,6 +3,6 @@
 *.swn
 log/*.log
 log/*.pid
-db
+db/schema.rb
 .bundle
 public/system
