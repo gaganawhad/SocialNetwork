@@ -33,7 +33,9 @@ class User < ActiveRecord::Base
   has_many :albums 
   has_many :memberships
   has_many :groups, :through => :memberships
-  has_many :owned_groups, :class => "Group" 
+#--------------------------------------------------
+#   has_many :owned_groups, :class => "Group" #NOTE Trying out ownership in memberships itself
+#-------------------------------------------------- 
   accepts_nested_attributes_for :address
 
 
