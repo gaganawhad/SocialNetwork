@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
   def create
-    @group = Group.new(params[:group])
+    @group = Group.create(params[:group])
   end
   def edit
     @group = Group.find(params[:id])
