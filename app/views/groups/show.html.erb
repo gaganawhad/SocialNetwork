@@ -1,0 +1,7 @@
+Group Name: 
+<%= @group.name %>
+Members:
+<% @group.members.each do |member| %>
+  <%= member.first_name %>
+  <%= member.last_name %>
+<% end %>
