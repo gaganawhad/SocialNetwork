@@ -6,4 +6,4 @@ log/*.pid
 db/schema.rb
 .bundle
 public/system
-.index.html.erb.swo
+*.swo
