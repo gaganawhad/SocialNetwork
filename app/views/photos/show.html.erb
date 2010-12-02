@@ -1,2 +1,7 @@
 <%= image_tag @photo.image.url %>
+<% @photo.comments.each do |comment| %>
+  <%= comment.commentor.first_name %> says
+  <%= comment.title %>
+  <%= comment.comment %>
+<% end %>
 

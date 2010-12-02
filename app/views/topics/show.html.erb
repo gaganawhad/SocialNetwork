@@ -1,2 +1,7 @@
 <%= @topic.title %>
 <%= @topic.description %>
+<% @topic.comments.each do |comment| %>
+  <%= comment.title %>
+  <%= comment.comment %>
+  - <%= comment.commentor.first_name %>
+<% end %>
