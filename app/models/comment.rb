@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
 
-  include ActsAsCommentable::Comment
+#  include ActsAsCommentable::Comment #NOTE this line was added by the generator. Do not know what it should be used for
 
   belongs_to :commentable, :polymorphic => true
 
@@ -11,6 +11,6 @@ class Comment < ActiveRecord::Base
   #acts_as_voteable
 
   # NOTE: Comments belong to a user
-  belongs_to :user
+  belongs_to :commentor, :class_name => 'User', :foreign_key => :user_id
 
 end
