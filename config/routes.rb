@@ -8,7 +8,9 @@ ActionController::Routing::Routes.draw do |map|
       album.resources :photos
     end
   end
-  map.resources :groups
+  map.resources :groups do |group|
+    group.resources :topics
+  end
 
 
   map.resource :session
