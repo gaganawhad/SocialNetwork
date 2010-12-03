@@ -5,4 +5,7 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])
   end
+  def new
+    @album = current_user.albums.build
+  end
 end
