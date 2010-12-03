@@ -1,20 +1,30 @@
 <h1> Profile </h1>
 <p><%= image_tag @user.picture.url(:small) %></p>
-<p><%= @user.first_name %> <%= @user.last_name %></p>
+<p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
 <p><%= @user.address.line_1 %></p>
 <p><%= @user.address.line_2 %></p>
 <p><%= @user.address.city %></p>
+<% if current_user == @user %>
+  <%= link_to 'Edit Profile', edit_user_path(@user.id) %>
+<% end %>
 
 <h1> Friends </h1>
+<% @user.friends.each do |friend| %>
+  <p><%= link_to "#{friend.full_name}", user_path(friend)%></p>
+<% end %>
 <% if @user.friends.empty? %>
-  <p>You do not have any friends!</p>
-<% else %>
-  <% @user.friends.each do |friend| %>
-    <p><%= link_to "#{friend.first_name} #{friend.last_name}", user_path(friend)%></p>
-  <% end %>
+  No friends yet
+<% end %>
+<% if current_user == @user %>
+  <%= link_to 'Find friends', users_path %>
 <% end %> 
-Make some <%= link_to 'friends', '/users' %>
 
 <h1> Albums </h1>
 <% @user.albums.each do |album| %>
 <% end %>
+<% if @user.albums.empty? %>
+  No Albums yet
+<% end %>
+<% if current_user == @user %>
+  <%= link_to 'Create New Album', new_user_album_path(current_user) %>
+<% end %> 
