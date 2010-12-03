@@ -1,6 +1,6 @@
 <h1>Welcome to SocialNetwork</h1>
 <% if logged_in? %>
-  <p> You have logged in as <%= current_user.first_name %>.  <%= link_to 'Log out', '/logout' %> </p>
+  <p> You have logged in as <%= link_to current_user.first_name %>.  <%= link_to 'Log out', '/logout' %> </p>
 <% else %>
   <p>You are not currently logged in. <%= link_to 'Log In', '/login' %> or  <%= link_to 'Register', '/register' %>  </p>
 <% end %>
