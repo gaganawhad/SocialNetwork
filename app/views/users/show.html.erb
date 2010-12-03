@@ -1,6 +1,13 @@
-<%= @user.first_name %>
-<%= @user.last_name %>
-<%= @user.address.line_1 %>
-<%= @user.address.line_2 %>
-<%= @user.address.city %>
-<%= image_tag @user.picture.url(:small) %>
+<p><%= image_tag @user.picture.url(:small) %></p>
+<p><%= @user.first_name %> <%= @user.last_name %></p>
+<p><%= @user.address.line_1 %></p>
+<p><%= @user.address.line_2 %></p>
+<p><%= @user.address.city %></p>
+
+<h1> Friends </h1>
+<% @user.friends.each do |friend| %>
+  <p><%= link_to "#{friend.first_name} #{friend.last_name}", user_path(friend)%></p>
+<% end %>
+<h1> Albums </h1>
+<% @user.albums.each do |album| %>
+<% end %>
