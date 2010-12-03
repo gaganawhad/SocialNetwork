@@ -8,14 +8,15 @@ class FriendshipsController < ApplicationController
       flash[:error] = "Error adding the friendship"
       redirect_to root_url
     end
+  end
 
-    def destroy
-      @friendship = current_user.friendships.find(params[:friend_id])
-      if @friendship.destroy
-        flash[:notice] = "Removed friend"
-      else
-        flash[:error] = "Could not remove friend"
-      end
-      redirect_to root_url
+  def destroy
+    @friendship = current_user.friendships.find(params[:friend_id])
+    if @friendship.destroy
+      flash[:notice] = "Removed friend"
+    else
+      flash[:error] = "Could not remove friend"
     end
+    redirect_to root_url
+  end
 end
