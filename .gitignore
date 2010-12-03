@@ -1,3 +1,4 @@
+config/database.yml
 *.swp
 *.swp
 *.swn
@@ -7,4 +8,3 @@ db/schema.rb
 .bundle
 public/system
 *.swo
-config/database.yml
