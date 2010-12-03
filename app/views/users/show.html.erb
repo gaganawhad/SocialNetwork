@@ -21,6 +21,7 @@
 
 <h1> Albums </h1>
 <% @user.albums.each do |album| %>
+  <p><%= album.name %> (<%= (link_to 'Edit Album', edit_user_album_path(current_user, album)) if @user == current_user%>)</p>
 <% end %>
 <% if @user.albums.empty? %>
   No Albums yet

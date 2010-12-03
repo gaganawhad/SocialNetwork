@@ -1,0 +1,3 @@
+<% semantic_form_for @album, :url => user_albums_path(current_user) do |form| %>
+  <%= render :partial => 'form', :object => form %>
+<% end %>
