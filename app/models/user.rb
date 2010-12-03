@@ -62,6 +62,10 @@ class User < ActiveRecord::Base
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)
   end
+  
+  def real_friends
+    real_friends = self.friends + self.inverse_friends
+  end
 
 #--------------------------------------------------
 #   def friends
