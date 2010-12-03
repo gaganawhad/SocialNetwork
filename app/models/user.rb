@@ -33,6 +33,10 @@ class User < ActiveRecord::Base
   has_many :albums 
   has_many :memberships
   has_many :groups, :through => :memberships
+  has_many :friendships
+  has_many :friends, :through => :friendships
+  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => :friend_id
+  has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 #--------------------------------------------------
 #   has_many :owned_groups, :class => "Group" #NOTE Trying out ownership in memberships itself
 #-------------------------------------------------- 
@@ -59,26 +63,28 @@ class User < ActiveRecord::Base
     write_attribute :email, (value ? value.downcase : nil)
   end
 
-  def friends
-    freinds = Friendship.find(:all, :conditions => ["initiator_id = #{self.id} || acceptor_id = #{self.id}"])
-  end
-
-  def request_friendship (user)
-    friendship = Friendship.new
-    friendship.initiator_id = 1
-    friendship.acceptor_id = user.id
-    friendship.state = "requested"
-    friendship.save!
-  end
-  def accept_friendship (user)
-    friendship = Friendship.find(user.id)
-    friendship.state = "accepted"
-    friendship.save!
-  end
-  def reject_friendship (user)
-    friendship = Friendship.find(user.id)
-    friendship.state = "rejected"
-    friendship.save!
-  end
+#--------------------------------------------------
+#   def friends
+#     freinds = Friendship.find(:all, :conditions => ["initiator_id = #{self.id} || acceptor_id = #{self.id}"])
+#   end
+# 
+#   def request_friendship (user)
+#     friendship = Friendship.new
+#     friendship.initiator_id = 1
+#     friendship.acceptor_id = user.id
+#     friendship.state = "requested"
+#     friendship.save!
+#   end
+#   def accept_friendship (user)
+#     friendship = Friendship.find(user.id)
+#     friendship.state = "accepted"
+#     friendship.save!
+#   end
+#   def reject_friendship (user)
+#     friendship = Friendship.find(user.id)
+#     friendship.state = "rejected"
+#     friendship.save!
+#   end
+#-------------------------------------------------- 
   
 end
