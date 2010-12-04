@@ -1,3 +1,5 @@
+<p><%= @album.name %></p>
+<p><%= @album.description %></p>
 <% @album.photos.each do |photo| %>
-  <%= image_tag photo.image.url(:thumbnails) %>
+  <%= image_tag photo.image.url(:thumbnail) %>
 <% end %>
