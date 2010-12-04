@@ -63,12 +63,16 @@ class User < ActiveRecord::Base
     write_attribute :email, (value ? value.downcase : nil)
   end
   
-  def real_friends
-    real_friends = self.friends + self.inverse_friends
+  def all_friends
+    all_friends = self.friends + self.inverse_friends
   end
 
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+
+  def all_friendships
+    self.friendships + self.inverse_friendships
   end
 
 #--------------------------------------------------
