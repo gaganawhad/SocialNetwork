@@ -1,5 +1,5 @@
 <h1> Profile </h1>
-<p><%= image_tag @user.picture.url(:small) %></p>
+<p><%= image_tag @user.picture.url(:profile) %></p>
 <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
 <p>Life Status: <%= @user.life_status %></p>
 <p>Address: <%= @user.address.one_string %></p>
@@ -17,13 +17,14 @@
 
 <h1> Friends </h1>
 <% @user.friends.each do |friend| %>
-  <p><%= link_to "#{friend.full_name}", user_path(friend)%></p>
+  <p><%= image_tag friend.picture.url(:small)%>  <%= link_to "#{friend.full_name}", user_path(friend)%></p>
 <% end %>
 <% if @user.friends.empty? %>
   No friends yet
 <% end %>
 <% if current_user == @user %>
   <%= link_to 'Find friends', users_path %>
+  <%= link_to 'Manage friendships', users_path %>
 <% end %> 
 
 
@@ -32,13 +33,14 @@
 
 <h1> Groups </h1>
 <% @user.groups.each do |group| %>
-  <p><%= group.name %><p>
+  <p><%= image_tag group.picture.url(:small)%> <%= link_to group.name, group_path(group) %><p>
 <% end %>
 <% if @user.friends.empty? %>
   No groups yet
 <% end %>
 <% if current_user == @user %>
   <%= link_to 'Find groups', groups_path %>
+  <%= link_to 'Manage groups', groups_path %>
 <% end %> 
 
 
@@ -46,7 +48,7 @@
 
 <h1> Albums </h1>
 <% @user.albums.each do |album| %>
-  <p><%= album.name %> (<%= (link_to 'Edit Album', edit_user_album_path(current_user, album)) if @user == current_user%>)</p>
+  <p><%= link_to album.name, user_album_path(@user, album) %></p>
 <% end %>
 <% if @user.albums.empty? %>
   No Albums yet
