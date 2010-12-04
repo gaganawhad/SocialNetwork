@@ -34,10 +34,10 @@
 
 
 <h1> Groups </h1>
-<% @user.groups.each do |group| %>
-  <p><%= image_tag group.picture.url(:small)%> <%= link_to group.name, group_path(group) %>
+<% @user.memberships.each do |membership| %>
+  <p><%= image_tag membership.group.picture.url(:small)%> <%= link_to membership.group.name, group_path(membership.group) %>
   <% if (@user == current_user) %>
-    ( <%= link_to 'Leave Group' %> )
+    ( <%= link_to 'Leave Group', {:controller => :memberships, :action => :destroy, :id => membership.id} %> )
   <% end %></p>
 <% end %>
 <% if @user.groups.empty? %>
@@ -54,8 +54,8 @@
 <% @user.albums.each do |album| %>
   <p><%= link_to album.name, user_album_path(@user, album) %> 
   <% if (@user == current_user) %>
-    ( <%= link_to 'Edit Album' %>,
-    <%= link_to 'Delete Album' %> )
+    ( <%= link_to 'Edit Album', edit_user_album_path(current_user, album) %>,
+    <%= link_to 'Delete Album', {:controller => :albums, :action => :destroy, :id => album.id}%> )
   <% end %></p>
 <% end %>
 <% if @user.albums.empty? %>
