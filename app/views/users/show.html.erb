@@ -1,3 +1,5 @@
+  <%= link_to 'Log out', '/logout' %>
+
 <h1> Profile </h1>
 <p><%= image_tag @user.picture.url(:profile) %></p>
 <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
