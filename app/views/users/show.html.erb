@@ -17,7 +17,7 @@
 
 <h1> Friends </h1>
 <% @user.friends.each do |friend| %>
-  <p><%= image_tag friend.picture.url(:small)%>  <%= link_to "#{friend.full_name}", user_path(friend)%></p>
+  <p><%= image_tag friend.picture.url(:small)%>  <%= link_to "#{friend.full_name}", user_path(friend)%> <%= (link_to '(Remove Friend)') if (@user == current_user) %></p>
 <% end %>
 <% if @user.friends.empty? %>
   No friends yet
@@ -33,7 +33,7 @@
 
 <h1> Groups </h1>
 <% @user.groups.each do |group| %>
-  <p><%= image_tag group.picture.url(:small)%> <%= link_to group.name, group_path(group) %><p>
+  <p><%= image_tag group.picture.url(:small)%> <%= link_to group.name, group_path(group) %> <%= (link_to '(Leave Group)') if (@user == current_user) %><p>
 <% end %>
 <% if @user.friends.empty? %>
   No groups yet
@@ -48,7 +48,7 @@
 
 <h1> Albums </h1>
 <% @user.albums.each do |album| %>
-  <p><%= link_to album.name, user_album_path(@user, album) %></p>
+  <p><%= link_to album.name, user_album_path(@user, album) %>  <%= (link_to '(Delete Album)') if (@user == current_user) %></p>
 <% end %>
 <% if @user.albums.empty? %>
   No Albums yet
