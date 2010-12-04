@@ -75,6 +75,15 @@ class User < ActiveRecord::Base
     self.friendships + self.inverse_friendships
   end
 
+  def has_friend? (user)
+    if self.all_friends.include?(user)
+      true
+    else
+      false
+    end
+  end
+
+
 #--------------------------------------------------
 #   def friends
 #     freinds = Friendship.find(:all, :conditions => ["initiator_id = #{self.id} || acceptor_id = #{self.id}"])
