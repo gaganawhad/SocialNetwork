@@ -17,14 +17,16 @@
 
 <h1> Friends </h1>
 <% @user.friends.each do |friend| %>
-  <p><%= image_tag friend.picture.url(:small)%>  <%= link_to "#{friend.full_name}", user_path(friend)%> <%= (link_to '(Remove Friend)') if (@user == current_user) %></p>
+  <p><%= image_tag friend.picture.url(:small)%>  <%= link_to "#{friend.full_name}", user_path(friend)%> 
 <% end %>
+  <% if (@user == current_user) %>
+    ( <%= link_to 'Remove friend' %> )
+  <% end %></p>
 <% if @user.friends.empty? %>
-  No friends yet
+  <p> No friends yet </p>
 <% end %>
 <% if current_user == @user %>
-  <%= link_to 'Find friends', users_path %>
-  <%= link_to 'Manage friendships', users_path %>
+  <p><%= link_to 'Find friends', users_path %></p>
 <% end %> 
 
 
@@ -33,14 +35,16 @@
 
 <h1> Groups </h1>
 <% @user.groups.each do |group| %>
-  <p><%= image_tag group.picture.url(:small)%> <%= link_to group.name, group_path(group) %> <%= (link_to '(Leave Group)') if (@user == current_user) %><p>
+  <p><%= image_tag group.picture.url(:small)%> <%= link_to group.name, group_path(group) %>
+  <% if (@user == current_user) %>
+    ( <%= link_to 'Leave Group' %> )
+  <% end %></p>
 <% end %>
-<% if @user.friends.empty? %>
-  No groups yet
+<% if @user.groups.empty? %>
+  <p>No groups yet</p>
 <% end %>
 <% if current_user == @user %>
-  <%= link_to 'Find groups', groups_path %>
-  <%= link_to 'Manage groups', groups_path %>
+  <p><%= link_to 'Find groups', groups_path %></p>
 <% end %> 
 
 
@@ -48,11 +52,15 @@
 
 <h1> Albums </h1>
 <% @user.albums.each do |album| %>
-  <p><%= link_to album.name, user_album_path(@user, album) %>  <%= (link_to '(Delete Album)') if (@user == current_user) %></p>
+  <p><%= link_to album.name, user_album_path(@user, album) %> 
+  <% if (@user == current_user) %>
+    ( <%= link_to 'Edit Album' %>,
+    <%= link_to 'Delete Album' %> )
+  <% end %></p>
 <% end %>
 <% if @user.albums.empty? %>
-  No Albums yet
+  <p>No Albums yet</p>
 <% end %>
 <% if current_user == @user %>
-  <%= link_to 'Create New Album', new_user_album_path(current_user) %>
+  <p><%= link_to 'Create New Album', new_user_album_path(current_user) %></p>
 <% end %> 
