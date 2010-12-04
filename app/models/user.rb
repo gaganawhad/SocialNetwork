@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   
 
   has_attached_file :picture, 
-                    :styles => {:small => "100x100>", :large => "500x500>"}
+                    :styles => {:profile => "180x220>", :small => "84x84#"}
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
   validates_uniqueness_of   :login

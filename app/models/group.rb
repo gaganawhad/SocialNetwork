@@ -1,5 +1,6 @@
 class Group < ActiveRecord::Base
-  has_attached_file :picture
+  has_attached_file :picture,
+                    :styles => {:profile => "180x220>", :small => "84x84#"}
   has_many :memberships
   has_many :members, :through => :memberships, :source => :user
   has_many :topics
