@@ -1,12 +1,19 @@
 <h1> Profile </h1>
 <p><%= image_tag @user.picture.url(:small) %></p>
 <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
-<p><%= @user.address.line_1 %></p>
-<p><%= @user.address.line_2 %></p>
-<p><%= @user.address.city %></p>
+<p>Life Status: <%= @user.life_status %></p>
+<p>Address: <%= @user.address.one_string %></p>
+<p>Email: <%= @user.email %></p>
+<p>Phone Number: <%= @user.phone_number %></p>
+<p>Favorite Movies: <%= @user.movies %></p>
+<p>Favorite Books: <%= @user.books %></p>
 <% if current_user == @user %>
-  <%= link_to 'Edit Profile', edit_user_path(@user.id) %>
+  <%= link_to 'Edit Profile', edit_user_path(current_user) %>
 <% end %>
+
+
+
+
 
 <h1> Friends </h1>
 <% @user.friends.each do |friend| %>
