@@ -16,13 +16,19 @@
 
 
 <h1> Friends </h1>
-<% @user.friends.each do |friend| %>
-  <p><%= image_tag friend.picture.url(:small)%>  <%= link_to "#{friend.full_name}", user_path(friend)%> 
-<% end %>
+<% @user.friendships.each do |friendship| %>
+  <p><%= image_tag friendship.friend.picture.url(:small)%>  <%= link_to "#{friendship.friend.full_name}", user_path(friendship.friend)%> 
   <% if (@user == current_user) %>
     ( <%= link_to 'Remove friend' %> )
   <% end %></p>
-<% if @user.friends.empty? %>
+<% end %>
+<% @user.inverse_friendships.each do |inverse_friendship| %>
+  <p><%= image_tag inverse_friendship.user.picture.url(:small)%>  <%= link_to "#{inverse_friendship.user.full_name}", user_path(inverse_friendship.user)%> 
+  <% if (@user == current_user) %>
+    ( <%= link_to 'Remove friend' %> )
+  <% end %></p>
+<% end %>
+<% if @user.all_friends.empty? %>
   <p> No friends yet </p>
 <% end %>
 <% if current_user == @user %>
