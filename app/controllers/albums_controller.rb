@@ -29,4 +29,13 @@ class AlbumsController < ApplicationController
     end
     redirect_to user_path(current_user)
   end
+  def destroy
+    @album = Album.find(params[:id])
+    if @album.destroy
+      params[:notice] = "Removed Album"
+    else
+      params[:error] = "Could not delete album"
+    end
+    redirect_to user_path(current_user)
+  end
 end
