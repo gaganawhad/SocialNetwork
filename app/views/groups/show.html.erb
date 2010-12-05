@@ -2,6 +2,10 @@
 <p>Group Name: <%=@group.name %></p>
 <p>Owner:<%=link_to "#{@group.owner.full_name}", user_path(@group.owner) %></p>
 <p>Description: <%= @group.description %></p>
+<% unless current_user.is_member?(@group) %>
+    ( <%= link_to 'Join Group', {:controller => :memberships, :action => :create, :id => @group.id} %> )
+<% end %>
+
 Members:
 <% @group.members.each do |member| %>
   <% unless member == @group.owner %>
