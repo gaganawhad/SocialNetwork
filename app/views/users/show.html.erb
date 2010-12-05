@@ -1,8 +1,10 @@
-  <%= link_to 'Log out', '/logout' %>
+<div class="utilities"><%= link_to 'Log out', '/logout' %></div>
 
-<h1> Profile </h1>
-<p><%= image_tag @user.picture.url(:profile) %></p>
-<p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<div class="lcol">
+<p><%= image_tag @user.picture.url(:profile), :class => 'profileimage' %></p>
+</div><!--/lcol-->
+<div class="rcol">
 <p>Life Status: <%= @user.life_status %></p>
 <p>Address: <%= @user.address.one_string %></p>
 <p>Email: <%= @user.email %></p>
@@ -77,3 +79,4 @@
 <% if current_user == @user %>
   <p><%= link_to 'Create New Album', new_user_album_path(current_user) %><%= link_to 'Add Photo', new_user_photo_path(current_user) %></p>
 <% end %> 
+</div><!--/rcol-->

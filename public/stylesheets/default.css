@@ -21,3 +21,36 @@ a:active{
 	position:relative;
 	top:1px;
 }
+
+.lcol{
+	width:190px;
+	float:left;
+}
+.rcol{
+	width:430px;
+	float:left;
+	padding-left:9px;
+	border-left:1px solid #ddd;
+}
+
+.profileimage{
+	width:180px;
+	height:220px;
+}
+
+.utilities{
+	height:16px;
+	float:right;
+	text-align:right;
+}
+
+label{
+	padding-right:10px;
+}
+input{
+	padding:2px;
+}
+
+li{
+	list-style:none;
+}

@@ -1,12 +1,17 @@
 <h1>Edit Profile</h1>
 
 <% semantic_form_for @user, :html => {:multipart => true} do |form| %>
-  <%= form.input :first_name %>
-  <%= form.input :last_name %>
+<div class="lcol">
   <%= form.input :picture %>
-  <% if @user.picture.exists? %>
+
+	<% if @user.picture.exists? %>
     <%= image_tag @user.picture.url(:small) %>
   <% end %>
+ 
+	</div>
+<div class="rcol">  
+<%= form.input :first_name %>
+  <%= form.input :last_name %>
   <%= form.input :gender, :as => :select, :collection => ["male", "female"] %>
   <% form.semantic_fields_for :address do |address| %>
     <%= address.input :line_1 %>
@@ -22,3 +27,5 @@
   <%= form.input :books, :label => 'Favorite Books' %>
   <%= form.buttons %>
 <% end %>
+
+</div>
