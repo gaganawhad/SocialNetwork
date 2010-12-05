@@ -44,7 +44,6 @@
 
 <h1> Groups </h1>
 <% @user.memberships.each do |membership| %>
-<% debugger %>
   <p><%= image_tag membership.group.picture.url(:small)%> <%= link_to membership.group.name, group_path(membership.group) %>
   <% if (@user == current_user) %>
     <% if @user.owns_group?(membership.group)%>
