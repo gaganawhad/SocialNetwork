@@ -72,5 +72,5 @@
   <p>No Albums yet</p>
 <% end %>
 <% if current_user == @user %>
-  <p><%= link_to 'Create New Album', new_user_album_path(current_user) %></p>
+  <p><%= link_to 'Create New Album', new_user_album_path(current_user) %><%= link_to 'Add Photo', new_user_photo_path(current_user) %></p>
 <% end %> 
