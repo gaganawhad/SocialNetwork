@@ -42,13 +42,13 @@
 
 
 
-
 <h1> Groups </h1>
 <% @user.memberships.each do |membership| %>
+<% debugger %>
   <p><%= image_tag membership.group.picture.url(:small)%> <%= link_to membership.group.name, group_path(membership.group) %>
   <% if (@user == current_user) %>
     <% if @user.owns_group?(membership.group)%>
-      ( <%= link_to 'Edit Group', edit_group_path(membership.group) %> <%= link_to 'Delete Group', group_path(membership.group), :method => :delete %>)
+      ( <%= link_to 'Edit Group', edit_group_path(membership.group) %> )
   <% else %>
     ( <%= link_to 'Leave Group', {:controller => :memberships, :action => :destroy, :id => membership.id} %> )
   <% end %>
