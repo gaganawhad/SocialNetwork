@@ -10,7 +10,7 @@
 Members:
 <% @group.members.each do |member| %>
   <% unless member == @group.owner %>
-    <p><%= link_to "#{member.full_name}", user_path(member) %></p>
+    <p><%= link_to "#{member.full_name}", user_path(member), :class => 'friendname'  %></p>
   <% end %>
 <% end %>
 <br/>
@@ -18,7 +18,7 @@ Members:
 <br/>
 Topics: 
 <% @group.topics.each do |topic| %>
-  <p><%= link_to "#{topic.title}", group_topic_path(topic) %></p>
+  <p><%= link_to "#{topic.title}", group_topic_path(topic), :class => 'friendname'  %></p>
 <% end %>
 
 </div>

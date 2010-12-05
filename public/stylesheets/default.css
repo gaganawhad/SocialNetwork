@@ -16,10 +16,12 @@ body{
 
 a{
 	color:#24a5ff;
+	text-shadow:0px 1px 0px #ddd;
 }
 a:active{
 	position:relative;
 	top:1px;
+	text-shadow:0px 0px 0px #fff;
 }
 
 .lcol{
@@ -32,6 +34,8 @@ a:active{
 	padding-left:9px;
 	border-left:1px solid #ddd;
 }
+.rcol IMG{
+}
 
 .profileimage{
 	width:180px;
@@ -42,6 +46,28 @@ a:active{
 	height:16px;
 	float:right;
 	text-align:right;
+}
+
+.x{
+	font-size:14px;
+	text-transform:uppercase;
+	font-weight:normal;
+	-webkit-border-radius:20px;
+	padding:1px 6px 3px 6px;
+	height:10px;
+	width:10px;
+	background:#ddd;
+	text-shadow:0px 01px 1px #fff;
+	-webkit-box-shadow:0px -1px 1px #ccc;
+	color:red;
+	text-decoration:none;
+}
+
+.friendname{
+	margin-top:-40px;
+	font-size:18px;
+	text-decoration:none;
+	font-weight:bold;
 }
 
 label{

@@ -19,15 +19,15 @@
 
 <h1> Friends </h1>
 <% @user.friendships.each do |friendship| %>
-  <p><%= image_tag friendship.friend.picture.url(:small)%>  <%= link_to "#{friendship.friend.full_name}", user_path(friendship.friend)%> 
+  <p><%= image_tag friendship.friend.picture.url(:small)%>  <%= link_to "#{friendship.friend.full_name}", user_path(friendship.friend), :class => 'friendname' %> 
   <% if (@user == current_user) %>
-    ( <%= link_to 'Remove friend', {:controller => :friendships, :action => :destroy, :id => friendship.id}%> )
+    <%= link_to 'Remove friend', {:controller => :friendships, :action => :destroy, :id => friendship.id}%>
   <% end %></p>
 <% end %>
 <% @user.inverse_friendships.each do |inverse_friendship| %>
-  <p><%= image_tag inverse_friendship.user.picture.url(:small)%>  <%= link_to "#{inverse_friendship.user.full_name}", user_path(inverse_friendship.user)%> 
+  <p><%= image_tag inverse_friendship.user.picture.url(:small)%>  <%= link_to "#{inverse_friendship.user.full_name}", user_path(inverse_friendship.user), :class => 'friendname' %> 
   <% if (@user == current_user) %>
-    ( <%= link_to 'Remove friend', {:controller => :friendships, :action => :destroy, :id => inverse_friendship.id} %> )
+    <%= link_to 'x', {:controller => :friendships, :action => :destroy, :id => inverse_friendship.id}, :class => 'x' %>
   <% end %></p>
 <% end %>
 <% if @user.all_friends.empty? %>
@@ -46,7 +46,7 @@
 
 <h1> Groups </h1>
 <% @user.memberships.each do |membership| %>
-  <p><%= image_tag membership.group.picture.url(:small)%> <%= link_to membership.group.name, group_path(membership.group) %>
+  <p><%= image_tag membership.group.picture.url(:small)%> <%= link_to membership.group.name, group_path(membership.group), :class => 'friendname'  %>
   <% if (@user == current_user) %>
     <% if @user.owns_group?(membership.group)%>
       ( <%= link_to 'Edit Group', edit_group_path(membership.group) %> )
