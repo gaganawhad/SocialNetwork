@@ -92,6 +92,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def is_member?(group)
+    if group.members.include?(self)
+      true
+    else 
+      false
+    end
+  end
+
 
 #--------------------------------------------------
 #   def friends
