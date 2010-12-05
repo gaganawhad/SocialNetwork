@@ -1,5 +1,6 @@
 <p><%= @album.name %></p>
 <p><%= @album.description %></p>
 <% @album.photos.each do |photo| %>
-  <%= image_tag photo.image.url(:thumbnail) %>
+  <%= link_to (image_tag photo.image.url(:thumbnail)), user_photo_path(params[:user_id],photo) %>
 <% end %>
+<p><%= link_to 'Add Photo', new_user_photo_path(current_user, @album.id) %></p>
