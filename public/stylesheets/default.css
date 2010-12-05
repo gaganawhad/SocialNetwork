@@ -54,3 +54,6 @@ input{
 li{
 	list-style:none;
 }
+textarea{
+	width:420px;
+}

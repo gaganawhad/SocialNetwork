@@ -1,5 +1,6 @@
-<p> <%=image_tag @group.picture.url(:profile) %></p>
-<p>Group Name: <%=@group.name %></p>
+<h1><%=@group.name %></h1>
+<div class="lcol"><p> <%=image_tag @group.picture.url(:profile) %></p></div>
+<div class="rcol">
 <p>Owner:<%=link_to "#{@group.owner.full_name}", user_path(@group.owner) %></p>
 <p>Description: <%= @group.description %></p>
 <% unless current_user.is_member?(@group) %>
@@ -19,3 +20,5 @@ Topics:
 <% @group.topics.each do |topic| %>
   <p><%= link_to "#{topic.title}", group_topic_path(topic) %></p>
 <% end %>
+
+</div>

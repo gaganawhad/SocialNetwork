@@ -1,8 +1,15 @@
+
 <%= form.error_messages %>
-<%= form.input :name %>
-<%= form.input :description %>
-<%= form.input :picture %>
-  <% if @group.picture.exists? %>
+
+<div class="lcol">
+	<% if @group.picture.exists? %>
     <%= image_tag @group.picture.url(:small) %>
   <% end %>
+<%= form.input :picture %>
+  
+	</div>
+<div class="rcol">
+<%= form.input :name %>
+<%= form.input :description %>
 <%= form.buttons %>
+</div>
