@@ -33,9 +33,9 @@ class GroupsController < ApplicationController
   def destroy
     @group = Group.find(params[:id])
     if @group.destroy
-      flash[:notice] = "Group updated successfully"
+      flash[:notice] = "Group was deleted successfully"
     else
-      flash[:error] = "Group not updated"
+      flash[:error] = "Group not deleted"
     end
     redirect_to :back
   end
