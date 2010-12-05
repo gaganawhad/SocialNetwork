@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :groups do |group|
     group.resources :topics
   end
+  map.resource :comment
 
 
   map.resource :session

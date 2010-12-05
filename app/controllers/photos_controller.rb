@@ -16,5 +16,6 @@ class PhotosController < ApplicationController
   end
   def show
     @photo = Photo.find(params[:id])
+    @comment = @photo.comments.build
   end
 end
