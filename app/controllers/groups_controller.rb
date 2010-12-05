@@ -32,6 +32,11 @@ class GroupsController < ApplicationController
   end
   def destroy
     @group = Group.find(params[:id])
-    @group.destroy
+    if @group.destroy
+      flash[:notice] = "Group updated successfully"
+    else
+      flash[:error] = "Group not updated"
+    end
+    redirect_to :back
   end
 end
