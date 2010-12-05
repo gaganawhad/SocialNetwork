@@ -51,7 +51,7 @@
     <% if @user.owns_group?(membership.group)%>
       ( <%= link_to 'Edit Group', edit_group_path(membership.group) %> )
   <% else %>
-    ( <%= link_to 'Leave Group', {:controller => :memberships, :action => :destroy, :id => membership.id} %> )
+    <%= link_to 'x', {:controller => :memberships, :action => :destroy, :id => membership.id}, :class => 'x' %>
   <% end %>
   <% end %></p>
 <% end %>
@@ -67,10 +67,10 @@
 
 <h1> Albums </h1>
 <% @user.albums.each do |album| %>
-  <p><%= link_to album.name, user_album_path(@user, album) %> 
+  <p><%= link_to album.name, user_album_path(@user, album), :class => 'friendname'%> 
   <% if (@user == current_user) %>
-    ( <%= link_to 'Edit Album', edit_user_album_path(current_user, album) %>,
-    <%= link_to 'Delete Album', {:controller => :albums, :action => :destroy, :id => album.id}%> )
+    <%= link_to 'Edit Album', edit_user_album_path(current_user, album) %>,
+    <%= link_to 'x', {:controller => :albums, :action => :destroy, :id => album.id}, :class => 'x' %>
   <% end %></p>
 <% end %>
 <% if @user.albums.empty? %>

@@ -1,4 +1,4 @@
-<p><%= @album.name %></p>
+<h1><%= @album.name %></h1>
 <p><%= @album.description %></p>
 <% @album.photos.each do |photo| %>
   <%= link_to (image_tag photo.image.url(:thumbnail)), user_photo_path(params[:user_id],photo) %>

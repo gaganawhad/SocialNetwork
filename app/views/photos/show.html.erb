@@ -1,8 +1,11 @@
-<%= image_tag @photo.image.url(:show_size) %>
-<p><%= @photo.title %></p>
+<h1><%= @photo.title %></h1>
+<div class="tools">
 <% if params[:user_id] == current_user.id.to_s%>
-  <p>(<%= link_to 'Edit', edit_user_photo_path(current_user, @photo) %>, <%= link_to 'Remove', user_photo_path(current_user, @photo), :method => :delete %>)</p>
+  <p><%= link_to 'Edit', edit_user_photo_path(current_user, @photo) %>, <%= link_to 'x', user_photo_path(current_user, @photo), :method => :delete, :class => 'x' %></p>
   <% end %>
+</div>
+<%= image_tag @photo.image.url(:show_size) %>
+
 <% @photo.comments.each do |comment| %>
   <% unless comment.new_record? %>
     <p><%= comment.commentor.first_name %> says
