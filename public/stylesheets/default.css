@@ -1,3 +1,23 @@
+html{
+	color:#333;
+	font-size:16px;
+}
+
 body{
 	font-family:helvetica;
+	width:640px;
+	padding:20px;
+	margin:auto;
+}
+
+.modal{
+	text-align:center;
+}
+
+a{
+	color:#24a5ff;
+}
+a:active{
+	position:relative;
+	top:1px;
 }
