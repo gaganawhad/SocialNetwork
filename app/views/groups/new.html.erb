@@ -1,6 +1,4 @@
-<%= @group.name %>
-<%= @group.owner.name %>
-<%= @group.description %>
-<% @group.members.each do |member| %>
- <%= member.name %>
+New Group:
+<%semantic_form_for @group, :html => {:multipart => true} do |form| %>
+  <%= render :partial => 'form', :object => form %>
 <% end %>

@@ -54,7 +54,7 @@
   <p>No groups yet</p>
 <% end %>
 <% if current_user == @user %>
-  <p><%= link_to 'Find groups', groups_path %></p>
+  <p><%= link_to 'Find groups', groups_path %>, <%= link_to 'Create group', new_group_path %></p>
 <% end %> 
 
 

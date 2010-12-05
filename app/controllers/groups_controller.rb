@@ -6,14 +6,26 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
   def create
-    @group = Group.create(params[:group])
+    @group = Group.new(params[:group])
+    @group.memberships.build(:user_id => current_user.id, :owner => true, :admin => true)
+    if @group.save
+      flash[:notice] = "Group created successfully"
+    else
+      flash[:error] = "Group not created"
+    end
+    redirect_to group_path(@group)
   end
   def edit
     @group = Group.find(params[:id])
   end
   def update
     @group = Group.find(params[:id])
-    @group.update_attributes(params[:group])
+    if @group.update_attributes(params[:group])
+      flash[:notice] = "Group updated successfully"
+    else
+      flash[:error] = "Group not updated"
+    end
+    redirect_to group_path(@group)
   end
   def show
     @group = Group.find(params[:id])

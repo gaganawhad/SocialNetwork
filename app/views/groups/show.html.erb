@@ -1,7 +1,17 @@
-Group Name: 
-<%= @group.name %>
+<p> <%=image_tag @group.picture.url(:profile) %></p>
+<p>Group Name: <%=@group.name %></p>
+<p>Owner:<%=link_to "#{@group.owner.full_name}", user_path(@group.owner) %></p>
+<p>Description: <%= @group.description %></p>
 Members:
 <% @group.members.each do |member| %>
-  <%= member.first_name %>
-  <%= member.last_name %>
+  <% unless member == @group.owner %>
+    <p><%= link_to "#{member.full_name}", user_path(member) %></p>
+  <% end %>
+<% end %>
+<br/>
+<br/>
+<br/>
+Topics: 
+<% @group.topics.each do |topic| %>
+  <p><%= link_to "#{topic.title}", group_topic_path(topic) %></p>
 <% end %>
