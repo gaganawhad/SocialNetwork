@@ -84,6 +84,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def owns_group?(group)
+    if self == group.owner
+      true
+    else 
+      false
+    end
+  end
+
 
 #--------------------------------------------------
 #   def friends
