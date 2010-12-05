@@ -1,7 +1,16 @@
-<%= @topic.title %>
-<%= @topic.description %>
+<h1> Topic</h1>
+<h2>Title: <%= @topic.title %></h2>
+<p><%= @topic.description %></p>
 <% @topic.comments.each do |comment| %>
-  <%= comment.title %>
-  <%= comment.comment %>
-  - <%= comment.commentor.first_name %>
+  <% unless comment.new_record? %>
+    <p><%= comment.comment %></p>
+    <p>- <%= link_to "#{comment.commentor.first_name}", user_path(comment.commentor) %></p>
+  <% end %>
+<% end %>
+<p>Add comment </p>
+<% semantic_form_for @comment, :url => {:controller => :comments, :action => :create} do |form| %>
+  <%= form.input :commentable_id, :as => :hidden %>
+  <%= form.input :commentable_type, :as => :hidden %>
+  <%= form.input :comment %>
+  <%= form.buttons %>
 <% end %>
