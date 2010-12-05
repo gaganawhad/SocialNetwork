@@ -4,9 +4,8 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.resources :users do |user|
-    user.resources :albums do |album|
-      album.resources :photos
-    end
+    user.resources :albums
+    user.resources :photos
   end
   map.resources :groups do |group|
     group.resources :topics
