@@ -2,4 +2,7 @@
 <%= form.input :name %>
 <%= form.input :description %>
 <%= form.input :picture %>
+  <% if @group.picture.exists? %>
+    <%= image_tag @group.picture.url(:small) %>
+  <% end %>
 <%= form.buttons %>

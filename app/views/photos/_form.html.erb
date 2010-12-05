@@ -2,4 +2,7 @@
 <%= form.input :title %>
 <%= form.input :album_id, :as => :select, :collection => Album.find_all_by_user_id(params[:user_id]).collect {|a| [a.name, a.id]} %>
 <%= form.input :image %>
+  <% if @photo.image.exists? %>
+    <%= image_tag @image.image.url(:small) %>
+  <% end %>
 <%= form.buttons %>
