@@ -1,4 +1,5 @@
-<%= form.error_messages %>
+<div class="lcol">&nbsp;</div>
+<div class="rcol"><%= form.error_messages %>
 <%= form.input :title %>
 <%= form.input :album_id, :as => :select, :collection => Album.find_all_by_user_id(params[:user_id]).collect {|a| [a.name, a.id]} %>
 <%= form.input :image %>
@@ -6,3 +7,5 @@
     <%= image_tag @image.image.url(:small) %>
   <% end %>
 <%= form.buttons %>
+
+</div>
