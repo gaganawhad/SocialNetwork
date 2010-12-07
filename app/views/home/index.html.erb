@@ -3,7 +3,7 @@
 <% if logged_in? %>
   <p> You have logged in as <%= link_to current_user.first_name, user_path(current_user) %>.  <%= link_to 'Log out', '/logout' %> </p>
 <% else %>
-  <p>You are not currently logged in. <%= link_to 'Log In', '/login' %> or  <%= link_to 'Register', '/register' %>  </p>
+  <p>You are not currently logged in. <%= link_to 'Log In', '/login' %> or  <%= link_to 'Sign Up', '/signup' %>  </p>
 <% end %>
 <p>See who is on the network: <%= link_to 'People', users_path %> </p>
 <p>See the groups on the network:<%= link_to 'Groups', groups_path %> </p>
