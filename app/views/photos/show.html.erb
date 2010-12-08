@@ -8,15 +8,13 @@
 
 <% @photo.comments.each do |comment| %>
   <% unless comment.new_record? %>
-    <p><%= comment.commentor.first_name %> says
+    <p><%= image_tag comment.commentor.picture.url(:small) %>
+    <%= link_to "#{comment.commentor.first_name}", user_path(comment.commentor) %> says
     <%= comment.comment %></p>
   <% end %>
 <% end %>
 
-<p>Add comment </p>
-<% semantic_form_for @comment, :url => {:controller => :comments, :action => :create} do |form| %>
-  <%= form.input :commentable_id, :as => :hidden %>
-  <%= form.input :commentable_type, :as => :hidden %>
-  <%= form.input :comment %>
-  <%= form.buttons %>
-<% end %>
+<p>Add comment </p> <% semantic_form_for @comment, :url => {:controller =>
+  :comments, :action => :create} do |form| %> <%= form.input :commentable_id,
+      :as => :hidden %> <%= form.input :commentable_type, :as => :hidden %> <%=
+  form.input :comment %> <%= form.buttons %> <% end %>
