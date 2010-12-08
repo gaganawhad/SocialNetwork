@@ -1,3 +1,4 @@
+<h1> Groups on the SocialNetwork </h1>
 <% @groups.each do |group| %>
   <p> <%= image_tag group.picture.url(:small) %>
   <%= link_to "#{group.name}", group_path(group) %></p>

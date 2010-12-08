@@ -1,5 +1,7 @@
+<h1> People on the SocialNetwork </h1>
 <% @users.each do |user| %>
   <% unless  user == current_user %>
-    <p><%= link_to "#{user.first_name} #{user.last_name}", user_path(user)%></p>
+    <p> <%= image_tag user.picture.url(:small) %>
+    <%= link_to "#{user.first_name} #{user.last_name}", user_path(user)%></p>
   <% end %>
 <% end %>
