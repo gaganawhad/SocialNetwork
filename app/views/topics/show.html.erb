@@ -1,10 +1,11 @@
 <h1> Topic</h1>
 <h2>Title: <%= @topic.title %></h2>
+<p> Created By: <%= link_to "#{@topic.creator.first_name}", user_path(@topic.creator) %>    <%= image_tag @topic.creator.picture.url(:small) %>
 <p><%= @topic.description %></p>
 <% @topic.comments.each do |comment| %>
   <% unless comment.new_record? %>
     <p><%= comment.comment %></p>
-    <p>- <%= link_to "#{comment.commentor.first_name}", user_path(comment.commentor) %></p>
+    <p>- <%= link_to "#{comment.commentor.first_name}", user_path(comment.commentor) %>     <%= image_tag comment.commentor.picture.url(:small) %>
   <% end %>
 <% end %>
 <p>Add comment </p>
