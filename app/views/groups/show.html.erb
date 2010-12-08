@@ -18,7 +18,10 @@ Members:
 <br/>
 Topics: 
 <% @group.topics.each do |topic| %>
-  <p><%= link_to "#{topic.title}", group_topic_path(topic), :class => 'friendname'  %></p>
+  <p><%= link_to "#{topic.title}", group_topic_path(@group, topic), :class => 'friendname'  %></p>
+<% end %>
+<% if current_user.is_member?(@group) %>
+  <%= link_to 'Add New', new_group_topic_path(@group) %>
 <% end %>
 
 </div>

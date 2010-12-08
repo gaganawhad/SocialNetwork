@@ -1,0 +1,10 @@
+<h2>Create New Topic </h2>
+<% semantic_form_for @topic, :url => group_topics_path(params[:group]) do |form| %>
+  <%= form.error_messages %>
+  <%= form.input :title %>
+  <%= form.input :description %>
+  <%= form.input :group_id, :as => :hidden %>
+  <%= form.buttons %>
+<% end %>
+
+
